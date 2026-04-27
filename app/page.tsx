@@ -1,16 +1,23 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion"; // Tambahkan Variants di sini
 import { Server, MonitorSmartphone, Bot, Wrench, Mail, ChevronDown } from "lucide-react";
 
 export default function Home() {
-  // Variasi Animasi Framer Motion
-  const fadeUp = {
+  // Tambahkan ": Variants" setelah nama variabel
+  const fadeUp: Variants = {
     hidden: { opacity: 0, y: 40 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.8, 
+        ease: "easeOut" // Sekarang TypeScript tidak akan protes lagi
+      } 
+    }
   };
 
-  const staggerContainer = {
+  const staggerContainer: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -52,7 +59,7 @@ export default function Home() {
             <span className="text-slate-400 text-sm font-medium">Bukan Rockstar, Cuma Orang Biasa</span>
           </motion.div>
 
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-slate-600 mb-6 tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-b from-white via-slate-200 to-slate-600 mb-6 tracking-tight whitespace-nowrap">
             Zahruddin.
           </h1>
           
@@ -103,7 +110,7 @@ export default function Home() {
             </div>
             <h3 className="text-2xl font-bold text-slate-200 mb-3">Home Server Enthusiast</h3>
             <p className="text-slate-400 leading-relaxed">
-              Punya server sendiri di rumah. Listrik bulanan naik sedikit, tapi kepuasan batin saat merasa seperti "Hacker di film-film" meningkat drastis. Deploy pakai Docker biar aman.
+              Punya server sendiri di rumah. Listrik bulanan naik sedikit, tapi kepuasan batin saat merasa seperti &quot;Hacker di film-film&quot; meningkat drastis. Deploy pakai Docker biar aman.
             </p>
           </motion.div>
 
@@ -114,7 +121,7 @@ export default function Home() {
             </div>
             <h3 className="text-2xl font-bold text-slate-200 mb-3">IT Support (Pawang Kantor)</h3>
             <p className="text-slate-400 leading-relaxed">
-              Spesialis menyelesaikan masalah rumit dengan mantra sakti: <span className="italic text-slate-300">"Udah dicoba matiin terus nyalain lagi belum?"</span> Penyelamat saat internet ngambek.
+              Spesialis menyelesaikan masalah rumit dengan mantra sakti: <span className="italic text-slate-300">&quot;Udah dicoba matiin terus nyalain lagi belum?&quot;</span> Penyelamat saat internet ngambek.
             </p>
           </motion.div>
 
@@ -135,7 +142,7 @@ export default function Home() {
       <section className="py-20 px-6 border-y border-slate-800/50 bg-[#080E21]">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-xl md:text-2xl text-slate-300 font-light italic leading-relaxed">
-            "Website ini saya buat agar terlihat sangat profesional, padahal aslinya di-hosting dari laptop tua di pojokan kamar yang menyala 24/7."
+            &quot;Website ini saya buat agar terlihat sangat profesional, padahal aslinya di-hosting dari laptop tua di pojokan kamar yang menyala 24/7.&quot;
           </p>
         </div>
       </section>
@@ -159,12 +166,12 @@ export default function Home() {
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center items-center gap-5">
-            <a href="mailto:emailanda@gmail.com" 
+            <a href="mailto:zahruddin.fanani17@gmail.com" 
                className="w-full sm:w-auto flex items-center justify-center gap-3 bg-cyan-600 hover:bg-cyan-500 text-white px-8 py-3.5 rounded-2xl transition-all duration-300 font-medium shadow-lg shadow-cyan-900/20 hover:-translate-y-0.5">
               <Mail size={20} /> 
               Sapa Lewat Email
             </a>
-            <a href="https://github.com/zahruddin" target="_blank" 
+            <a href="https://github.com/zahruddin" target="_blank" rel="noopener noreferrer"
                className="w-full sm:w-auto flex items-center justify-center gap-3 bg-[#0F172A] hover:bg-[#1E293B] border border-slate-700 hover:border-cyan-500/50 text-slate-200 px-8 py-3.5 rounded-2xl transition-all duration-300 font-medium hover:-translate-y-0.5">
               <span className="text-slate-400 group-hover:text-cyan-400">
                 <GithubIcon />
