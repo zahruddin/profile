@@ -4,9 +4,11 @@ on:
   push:
     branches: [ "main" ]
 
+# Memaksa GitHub Actions menggunakan Node 24 (Standar 2026)
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true 
 
 jobs:
   build-and-push:
@@ -27,8 +29,9 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6 # Update ke v6 untuk dukungan Node 24 yang lebih baik
         with:
           context: .
+          file: ./Dockerfile # Memastikan path Dockerfile eksplisit
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
